@@ -105,10 +105,14 @@ p {
 
 .logo {
     float: left;
-    margin-top: 8px;
-	position: relative;
-	z-index: 2;
+    margin-top: 0; 
+    position: relative;
+    z-index: 2;
+    width: 220px; 
+    height: auto; 
 }
+
+
 
 .res-nav_click {
     display: none;
@@ -137,9 +141,11 @@ p {
 }
 
 .navStyle ul {
-    list-style: none;
-    padding: 0px;
+    list-style: none; 
+    margin: 0; 
+    padding: 0; 
 }
+
 
 .navStyle ul li {
     display: inline-block;
@@ -147,7 +153,7 @@ p {
 }
 
 .navStyle ul li:first-child {
-	/*margin:0px;*/;
+	/*margin:0px;*/
 }
 
 .navStyle ul li:last-child {
@@ -184,7 +190,7 @@ p {
 
 .navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
     color: #fff;
-	background-color: #005490;
+	background-color: #000000;
 	border-radius:5%;
 }
 
@@ -214,7 +220,44 @@ p {
     background: #005490;
     position: relative;
 }
-
+.hero-header {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+  }
+  
+  .hero-header h1 {
+    font-size: 36px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 20px;
+  }
+  
+  .hero-header .hero-subtext {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+  }
+  
+  .hero-header .btn {
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding: 10px 20px;
+    background-color: #005490;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+  
+  .hero-header .btn:hover {
+    background-color: #003a68;
+    color: #fff;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
 .hero_section {
     position: relative; 
 }
@@ -297,10 +340,52 @@ a.read_more2:hover {
 }
 
 	
+/* oferta */
 
+.oferta-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
 
+.oferta-item {
+    text-align: left;
+    position: relative;
+}
 
+.oferta-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
 
+.oferta-item p {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.oferta-item::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    margin-top: 10px;
+}
+
+.oferta-item a {
+    display: block;
+    font-size: 14px;
+    color: #005490;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.oferta-item a:hover {
+    text-decoration: underline;
+}
 
 
 
@@ -309,21 +394,22 @@ a.read_more2:hover {
 
 #service {
     padding: 60px 0px;
-    background: #EFEFEF;
+    background: #f9f9f9;
 }
-
 .service_wrapper {
     padding: 40px 0 40px;
 }
-
+.service_wrapper .row {
+    margin-bottom: 40px;
+}
 .service_section {
 }
 
 .service_block {
-    text-align: center;
-    padding-left: 15px;
-    padding-right: 15px;
+    text-align: left;
+    position: relative; 
 }
+
 
 .service_icon {
     border: 2px solid #005490;
@@ -360,20 +446,36 @@ a.read_more2:hover {
 
 .service_block h3 {
     font-family: 'Raleway', sans-serif;
-    font-weight: 600;
-    font-size: 18px;
+    font-weight: 700; 
+    font-size: 20px;
     color: #111111;
-    margin: 35px 0 18px;
+    margin-bottom: 10px;
+    margin-left: 0; 
+}
+
+.service_block hr {
+    border: none;
+    height: 1px;
+    background: #e0e0e0; /
+    margin: 20px 0; 
 }
 
 .service_block p {
     font-size: 16px;
-    color: #888888;
-    margin: 0px;
+    color: #555555;
+    line-height: 1.8; 
+    margin-left: 0; 
+    text-align: justify; 
 }
 	
-
-
+.service_block a {
+    color: #005490;
+    text-decoration: none;
+    font-weight: bold;
+}
+.service_block a:hover {
+    text-decoration: underline;
+}
 /* Latest Work
 ---------------------------------*/
 
@@ -408,7 +510,7 @@ a.read_more2:hover {
 }
 
 .service-list-col1 i {
-    display:;
+    
     color: #888;
     font-size: 19px;
     font-style: normal;
@@ -657,7 +759,73 @@ img {
     max-width: 993px;
     margin: 0 auto;
 }
-
+.team {
+    padding: 60px 0;
+    text-align: center;
+  }
+  
+  .team h2 {
+    font-size: 36px;
+    color: #222;
+    margin-bottom: 10px;
+  }
+  
+  .team h6 {
+    font-size: 16px;
+    color: #888;
+    margin-bottom: 40px;
+  }
+  
+  .member {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .member-avatar {
+    margin: 0 auto 20px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .member-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .member-info {
+    padding: 10px;
+  }
+  
+  .member-info h4 {
+    font-size: 20px;
+    color: #005490;
+    margin-bottom: 5px;
+  }
+  
+  .member-info .designation {
+    display: block;
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  .member-info p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+  
+  /* Efekty Hover dla Avatara */
+  .member-avatar:hover {
+    transform: scale(1.1);
+    transition: 0.3s ease;
+  }
 #aboutUs {
     padding: 60px 0;
 }
@@ -1578,8 +1746,28 @@ margin: 0 0 9px 0;
 .inner_section {
 padding: 20px 0 20px;
 }
+#about-section {
+    padding: 50px 20px; 
+    text-align: center; 
+}
+#about-section p {
+    margin: 20px auto;
+    max-width: 800px; /* Ogranicz szerokość tekstu, aby był bardziej czytelny */
+    line-height: 1.6;
+}
+#about-section img {
+    display: none; /* Usunięcie obrazka */
+}
 #aboutUs img{
 margin-bottom:20px;
+}
+#oferta-section {
+    padding: 50px 20px; /* Odstępy dookoła */
+    text-align: center;
+}
+
+#oferta-section h2, #oferta-section p {
+    margin-bottom: 20px; /* Dodanie miejsca między elementami */
 }
 #aboutUs h3{
 font-size:16px;
@@ -1605,7 +1793,7 @@ margin: 0 18px;
 .page_section.team{
 padding: 40px 0;
 }
-, #clients {
+ #clients {
 padding: 40px 0;
 }
 .client_logos ul li {
