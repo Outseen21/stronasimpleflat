@@ -21,7 +21,118 @@ $(document).ready(function() {
         }, 1000, 'swing');
     });
 
-	
+	let currentImageIndex = 0;
+const images = {
+  projekt1: [
+    "img/portfolio1_1.jpg",
+    "img/portfolio1_2.jpg",
+    "img/portfolio1_3.jpg",
+    "img/portfolio1_4.jpg",
+    "img/portfolio1_5.jpg",
+    "img/portfolio1_6.jpg"
+  ],
+  projekt2: [
+    "img/portfolio2_1.jpg",
+    "img/portfolio2_2.jpg",
+    "img/portfolio2_3.jpg"
+  ]
+};
+let currentProject = "";
+
+// Funkcja otwierania galerii
+function openGallery(project) {
+  currentProject = project;
+  currentImageIndex = 0;
+  const modal = document.querySelector(`#${project}`);
+  if (modal) {
+    modal.style.display = "flex";
+    updateGalleryImage();
+    updateImageCounter();
+    updateArrows();
+  }
+}
+
+// Funkcja zamykania galerii
+function closeGallery() {
+  const modal = document.querySelector(`#${currentProject}`);
+  if (modal) {
+    modal.style.display = "none";
+  }
+  currentProject = "";
+}
+
+// Funkcja zmiany obrazu
+function changeImage(direction) {
+  const projectImages = images[currentProject];
+  if (projectImages) {
+    const newIndex = currentImageIndex + direction;
+
+    // Sprawdzenie, czy indeks jest w zakresie
+    if (newIndex >= 0 && newIndex < projectImages.length) {
+      currentImageIndex = newIndex;
+      updateGalleryImage();
+      updateImageCounter();
+      updateArrows();
+    }
+  }
+}
+
+// Aktualizacja obrazu w galerii
+function updateGalleryImage() {
+  const modalImage = document.querySelector(`#${currentProject} .gallery-image`);
+  if (modalImage && images[currentProject]) {
+    modalImage.src = images[currentProject][currentImageIndex];
+  }
+}
+
+// Aktualizacja licznika zdjęć
+function updateImageCounter() {
+  const counter = document.querySelector(`#${currentProject} .image-counter`);
+  if (counter && images[currentProject]) {
+    counter.textContent = `Zdjęcie ${currentImageIndex + 1} z ${images[currentProject].length}`;
+  }
+}
+
+// Aktualizacja stanu strzałek (aktywne/nieaktywne)
+function updateArrows() {
+  const prevButton = document.querySelector(`#${currentProject} .prev`);
+  const nextButton = document.querySelector(`#${currentProject} .next`);
+
+  if (currentImageIndex === 0) {
+    prevButton.disabled = true; // Wyłącz przycisk "Poprzedni", jeśli jesteś na pierwszym zdjęciu
+  } else {
+    prevButton.disabled = false; // Włącz przycisk "Poprzedni"
+  }
+
+  if (currentImageIndex === images[currentProject].length - 1) {
+    nextButton.disabled = true; // Wyłącz przycisk "Następny", jeśli jesteś na ostatnim zdjęciu
+  } else {
+    nextButton.disabled = false; // Włącz przycisk "Następny"
+  }
+}
+
+// Dodanie zdarzeń do strzałek
+document.addEventListener("click", (event) => {
+  if (event.target.classList.contains("prev")) {
+    changeImage(-1);
+  } else if (event.target.classList.contains("next")) {
+    changeImage(1);
+  } else if (event.target.classList.contains("close")) {
+    closeGallery();
+  }
+});
+
+// Dodanie zdarzeń do przycisków "Zobacz więcej"
+document.querySelectorAll(".btn-view").forEach((button) => {
+  button.addEventListener("click", function (event) {
+    event.preventDefault();
+    const projectId = this.getAttribute("onclick").match(/'([^']+)'/)[1];
+    openGallery(projectId);
+  });
+});
+
+
+
     function resizeText() {
         var preferredWidth = 767;
         var displayWidth = window.innerWidth;

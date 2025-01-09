@@ -564,7 +564,110 @@ a.contact_btn:hover {
     background: transparent;
 }
 
-
+/* Modal galerii */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .gallery-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .gallery-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .gallery-navigation {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+  }
+  
+  .gallery-navigation .prev,
+  .gallery-navigation .next {
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #000;
+    transition: background 0.3s;
+  }
+  
+  .gallery-navigation .prev:hover,
+  .gallery-navigation .next:hover {
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  
+  .image-counter {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10;
+    text-align: center;
+  }
+  
+  button.prev:disabled,
+  button.next:disabled {
+    opacity: 0.5;
+    cursor: not-allowed; /* Zablokuj przycisk wizualnie */
+  }
+  
+  button.prev,
+  button.next {
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    color: #000;
+    transition: background 0.3s ease;
+  }
+  
+  button.prev:hover:not(:disabled),
+  button.next:hover:not(:disabled) {
+    background: rgba(255, 255, 255, 1);
+  }
+  
+  
+  
 /* Portfolio
 ---------------------------------*/
 
@@ -573,68 +676,180 @@ a.contact_btn:hover {
     padding: 60px 0px;
 }
 
-.Portfolio-nav {
-    padding: 0;
-    margin: 0 0 45px 0;
-    list-style: none;
+.portfolio-section {
+    padding: 80px 20px;
+    background-color: #f9f9f9;
     text-align: center;
 }
 
-.Portfolio-nav li {
-    margin: 0 10px;
-    display: inline;
+.portfolio-section h2 {
+    font-size: 40px;
+    color: #222;
+    margin-bottom: 20px;
 }
 
-.Portfolio-nav li a {
+.portfolio-section p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden; /* Ukrycie nadmiaru treści */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 300px; /* Ogranicz szerokość każdego elementu portfolio */
+    max-height: 300px; /* Ogranicz wysokość każdego elementu portfolio */
+    margin: 20px auto; /* Wyśrodkowanie elementów */
+    border-radius: 10px; /* Zaokrąglenie rogów */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Dodanie cienia */
+    background-color: #f8f8f8; /* Tło na wypadek, gdyby obraz się nie załadował */
+  }
+  
+  .portfolio-item img {
+    width: 300px; /* Stała szerokość dla wszystkich obrazów */
+  height: 200px; /* Stała wysokość dla wszystkich obrazów */
+  object-fit: cover; /* Ustawia, że obraz zostanie dopasowany do ramki */
+  border-radius: 8px; /* Zaokrąglone rogi */
+    transition: transform 0.3s ease; /* Animacja przy najechaniu */
+  }
+  .portfolio-item:hover img {
+    transform: scale(1.1); /* Powiększenie obrazu przy najechaniu */
+  }
+  
+.portfolio-item:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Ciemne półprzezroczyste tło */
+    color: #ffffff; /* Kolor tekstu biały */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; /* Ustaw na 1, aby było widoczne */
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 8px; /* Zaokrąglone rogi, jak obraz */
+  }
+  
+  .portfolio-item:hover .overlay {
+    opacity: 1; /* Utrzymuje widoczność podczas najechania */
+  }
+  
+  .overlay h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .overlay p {
+    font-size: 16px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  
+  .overlay .btn-view {
+    color: white;
+    text-decoration: none;
+    background: #005490;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .overlay .btn-view:hover {
+    background: #003a68;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Ciemne półprzezroczyste tło */
+    color: #ffffff; /* Biały kolor tekstu */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 1; /* Widoczność overlay */
+    transition: opacity 0.3s ease-in-out;
+    border-radius: 8px; /* Zaokrąglone rogi */
+    z-index: 10;
+}
+
+.portfolio-item:hover .overlay {
+    opacity: 1; /* Overlay widoczny przy najechaniu */
+}
+
+.overlay h3 {
+    font-size: 18px; /* Rozmiar nagłówka */
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+    color: #ffffff; /* Biały kolor tekstu */
+}
+
+.overlay p {
+    font-size: 14px; /* Rozmiar akapitu */
+    margin: 10px 0;
+    text-align: center;
+    color: #ffffff; /* Biały kolor tekstu */
+}
+
+.overlay .btn-view {
+    color: white;
+    text-decoration: none;
+    background: #005490;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.overlay .btn-view:hover {
+    background: #003a68;
+}
+.btn-view {
     display: inline-block;
-    padding: 10px 22px;
-    font-size: 12px;
-    line-height: 20px;
-    color: #222222;
-    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
     text-transform: uppercase;
-    background: #f7f7f7;
-    margin-bottom: 5px;
-    transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-}
-
-.Portfolio-nav li a:hover {
-    background: #005490;
+    font-weight: bold;
     color: #fff;
+    background-color: #005490;
+    border-radius: 5px;
     text-decoration: none;
+    transition: background-color 0.3s ease;
 }
 
-.portfolioContainer {
-    margin: 0 auto;
-    padding-left: 15px;
-    width: auto !important;
+.btn-view:hover {
+    background-color: #003a68;
 }
 
-.Portfolio-box {
-    text-align: center;
-    width: 350px;
-    overflow: hidden;
-    float: left;
-    padding: 12px 0px;
-}
 
-.Portfolio-box img {
-    transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-}
-
-.Portfolio-box img:hover {
-    opacity: 0.6;
-}
-
-.Portfolio-nav li a.current {
-    background: #005490;
-    color: #fff;
-    text-decoration: none;
-}
 
 img {
     max-width: 100%;
@@ -1268,7 +1483,50 @@ transition: all .25s ease;
     position: relative;
     overflow: hidden;
 }
-
+.portfolio-item .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Ciemne tło z przezroczystością */
+    color: #fff;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+  }
+  
+  .portfolio-item:hover .overlay {
+    opacity: 1; /* Pokaż overlay przy najechaniu */
+  }
+  
+  .portfolio-item .overlay h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .portfolio-item .overlay p {
+    font-size: 14px;
+    margin: 0;
+  }
+  
+  .portfolio-item .overlay a {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background: #005490;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+  }
+  
+  .portfolio-item .overlay a:hover {
+    background: #003a68;
+  }
 .portfolio-item .portfolio_img {
     overflow: hidden;
     display: block;

@@ -130,72 +130,59 @@
 <!--Sekcja Oferta-->
 
 <!-- Portfolio -->
-<section id="Portfolio" class="content"> 
-  <div class="container portfolio_title"> 
-    <div class="section-title">
-      <h2>Portfolio</h2>
+<section id="portfolio" class="portfolio-section">
+  <div class="container">
+    <h2>Portfolio</h2>
+    <p>Zobacz różnorodne realizacje, które wykonaliśmy z pasją i zaangażowaniem.</p>
+    <div class="portfolio-grid">
+      <!-- Projekt 1 -->
+      <div class="portfolio-item">
+        <img src="img/portfolio1_1.jpg" alt="Projekt 1">
+        <div class="overlay">
+          <h3>Projekt 1: Nowoczesny salon</h3>
+          <p>Przestronny salon w nowoczesnym stylu. Zobacz zdjęcia szczegółów!</p>
+          <a href="#projekt1" class="btn-view" onclick="openGallery('projekt1')">Zobacz więcej</a>
+        </div>
+      </div>
+      <!-- Projekt 2 -->
+      <div class="portfolio-item">
+        <img src="img/portfolio2_1.jpg" alt="Projekt 2">
+        <div class="overlay">
+          <h3>Projekt 2: Kuchnia marzeń</h3>
+          <p>Funkcjonalna kuchnia z wyspą, wykorzystująca nowoczesne materiały i styl.</p>
+          <a href="#projekt2" class="btn-view" onclick="openGallery('projekt2')">Zobacz więcej</a>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="portfolio-top"></div>
-  <div class="portfolio"> 
-    <div id="filters" class="sixteen columns">
-      <ul class="clearfix">
-        <li><a id="all" href="#" data-filter="*" class="active">
-          <h5>Wszystko</h5>
-        </a></li>
-        <li><a class="" href="#" data-filter=".prototype">
-          <h5>Prototypy</h5>
-        </a></li>
-        <li><a class="" href="#" data-filter=".design">
-          <h5>Design</h5>
-        </a></li>
-        <li><a class="" href="#" data-filter=".android">
-          <h5>Android</h5>
-        </a></li>
-        <li><a class="" href="#" data-filter=".appleIOS">
-          <h5>Apple IOS</h5>
-        </a></li>
-        <li><a class="" href="#" data-filter=".web">
-          <h5>Web App</h5>
-        </a></li>
-      </ul>
+
+  <!-- Galerie Projektów -->
+  <div id="projekt1" class="gallery-modal">
+    <div class="gallery-content">
+      <span class="close" onclick="closeGallery()">&times;</span>
+      <img src="img/portfolio1_1.jpg" class="gallery-image" id="current-image">
+      <div class="gallery-navigation">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <div class="image-counter">Zdjęcie 1 z 6</div>
     </div>
-    <div class="isotope fadeInLeft animated wow" style="position: relative; overflow: hidden; height: 480px;" id="portfolio_wrapper"> 
-      <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(0px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four   appleIOS isotope-item">
-        <div class="portfolio_img"> <img src="img/portfolio_pic1.jpg"  alt="Portfolio 1"> </div>        
-        <div class="item_overlay">
-          <div class="item_info"> 
-            <h4 class="project_name">Aplikacja mobilna SMS</h4>
-          </div>
-        </div>
+  </div>
+
+  <div id="projekt2" class="gallery-modal">
+    <div class="gallery-content">
+      <span class="close" onclick="closeGallery()">&times;</span>
+      <img src="img/portfolio2_1.jpg" class="gallery-image" id="current-image">
+      <div class="gallery-navigation">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
       </div>
-      <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(337px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design isotope-item">
-        <div class="portfolio_img"> <img src="img/portfolio_pic2.jpg" alt="Portfolio 1"> </div>
-        <div class="item_overlay">
-          <div class="item_info"> 
-            <h4 class="project_name">Aplikacja finansowa</h4>
-          </div>
-        </div>
-      </div>
-      <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(674px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  design  isotope-item">
-        <div class="portfolio_img"> <img src="img/portfolio_pic3.jpg" alt="Portfolio 1"> </div>
-        <div class="item_overlay">
-          <div class="item_info"> 
-            <h4 class="project_name">Koncepcja GPS</h4>
-          </div>
-        </div>
-      </div>
-      <div style="position: absolute; left: 0px; top: 0px; transform: translate3d(1011px, 0px, 0px) scale3d(1, 1, 1); width: 337px; opacity: 1;" class="portfolio-item one-four  android  prototype web isotope-item">
-        <div class="portfolio_img"> <img src="img/portfolio_pic4.jpg" alt="Portfolio 1"> </div>
-        <div class="item_overlay">
-          <div class="item_info"> 
-            <h4 class="project_name">Zakupy</h4>
-          </div>
-        </div>
-      </div>
+      <div class="image-counter">Zdjęcie 1 z 3</div>
     </div>
   </div>
 </section>
+
+
 <!--Portfolio -->
 
 
