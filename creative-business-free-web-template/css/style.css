@@ -1737,6 +1737,28 @@ padding-top: 10px;
 .top_left_cont {
 padding: 38px 0;
 }
+#team .member {
+    text-align: center; /
+}
+
+#team .author-avatar {
+    float: none; /* Usunięcie wyrównania do lewej */
+    margin: 0 auto 20px; /* Wyśrodkowanie i odstęp poniżej */
+    display: block; /* Zapewnienie wyświetlenia jako blok */
+}
+
+#team .member-details {
+    padding-left: 0; /* Usuń odstęp po lewej */
+    text-align: center; /* Tekst w środku */
+}
+
+#team .member-top h4 {
+    font-size: 18px; /* Dostosowanie rozmiaru czcionki */
+}
+
+#team .designation {
+    font-size: 14px; /* Dostosowanie wielkości stanowiska */
+}
 .top_left_cont h2 {
 font-size: 25px;
 color: #FFF;
@@ -1758,9 +1780,56 @@ padding: 20px 0 20px;
 #about-section img {
     display: none; /* Usunięcie obrazka */
 }
-#aboutUs img{
-margin-bottom:20px;
+#aboutUs {
+    padding: 80px 20px; /* Więcej przestrzeni dla estetyki */
+    text-align: center; /* Wyśrodkowanie tekstu */
+    background-color: #f9f9f9; /* Jasne tło */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    display: flex; /* Flexbox dla łatwiejszego wyrównania */
+    flex-direction: column; /* Układ w kolumnie */
+    justify-content: center; /* Wyrównanie w pionie */
+    align-items: center; /* Wyrównanie w poziomie */
+    height: auto; /* Dynamiczna wysokość */
 }
+
+#aboutUs h2 {
+    font-size: 36px; /* Większy rozmiar dla nagłówka */
+    color: #222;
+    margin-bottom: 30px; /* Przestrzeń poniżej nagłówka */
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+}
+
+#aboutUs p {
+    font-size: 18px; /* Większa czcionka */
+    color: #555;
+    line-height: 1.8; /* Więcej przestrzeni między liniami */
+    margin: 15px auto; /* Odstępy między akapitami */
+    max-width: 900px; /* Ograniczenie szerokości */
+    text-align: justify; /* Wyjustowanie tekstu dla estetyki */
+}
+
+#aboutUs .work_bottom {
+    margin-top: 40px; /* Więcej przestrzeni nad przyciskiem */
+}
+
+#aboutUs .btn {
+    background-color: #005490;
+    color: white;
+    font-size: 16px;
+    padding: 12px 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+#aboutUs .btn:hover {
+    background-color: #003a68;
+}
+
+
 #oferta-section {
     padding: 50px 20px; /* Odstępy dookoła */
     text-align: center;
