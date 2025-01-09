@@ -343,28 +343,50 @@ a.read_more2:hover {
 /* oferta */
 
 .oferta-row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    display: flex; /* Użycie Flexbox */
+    flex-wrap: wrap; /* Pozwala na przełamanie wierszy */
+    gap: 20px; /* Odstępy między elementami */
+    justify-content: space-between; /* Równe rozmieszczenie */
 }
 
 .oferta-item {
+    flex: 1 1 calc(33.33% - 20px); /* Równa szerokość kolumny (3 w wierszu) */
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Równomierne rozmieszczenie w pionie */
     text-align: left;
-    position: relative;
 }
 
 .oferta-item h3 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .oferta-item p {
     font-size: 14px;
     color: #555;
-    margin-bottom: 20px;
+    line-height: 1.6;
+    text-align: justify;
 }
 
+@media (max-width: 768px) {
+    .oferta-item {
+        flex: 1 1 calc(50% - 10px); /* 2 kolumny w wierszu dla urządzeń mobilnych */
+    }
+}
+
+@media (max-width: 480px) {
+    .oferta-item {
+        flex: 1 1 100%; /* 1 kolumna w wierszu dla bardzo małych ekranów */
+    }
+}
 .oferta-item::after {
     content: '';
     display: block;
@@ -2038,17 +2060,7 @@ padding: 20px 0 20px;
 #about-section img {
     display: none; /* Usunięcie obrazka */
 }
-#aboutUs {
-    padding: 80px 20px; /* Więcej przestrzeni dla estetyki */
-    text-align: center; /* Wyśrodkowanie tekstu */
-    background-color: #f9f9f9; /* Jasne tło */
-    border-radius: 10px; /* Zaokrąglone rogi */
-    display: flex; /* Flexbox dla łatwiejszego wyrównania */
-    flex-direction: column; /* Układ w kolumnie */
-    justify-content: center; /* Wyrównanie w pionie */
-    align-items: center; /* Wyrównanie w poziomie */
-    height: auto; /* Dynamiczna wysokość */
-}
+
 
 #aboutUs h2 {
     font-size: 36px; /* Większy rozmiar dla nagłówka */
@@ -2067,25 +2079,48 @@ padding: 20px 0 20px;
     text-align: justify; /* Wyjustowanie tekstu dla estetyki */
 }
 
-#aboutUs .work_bottom {
-    margin-top: 40px; /* Więcej przestrzeni nad przyciskiem */
+
+#aboutUs {
+    padding: 60px 0;
+    text-align: center;
 }
 
-#aboutUs .btn {
+
+#aboutUs .work_bottom {
+    display: flex;
+    justify-content: center; /* Wyśrodkowanie poziome */
+    align-items: center; /* Wyśrodkowanie pionowe (jeśli potrzebne) */
+    margin-top: 30px;
+    width: 100%; /* Upewnienie się, że element ma pełną szerokość */
+}
+
+#aboutUs .btn-primary {
+    font-size: 18px;
+    padding: 15px 40px;
     background-color: #005490;
     color: white;
-    font-size: 16px;
-    padding: 12px 30px;
     text-transform: uppercase;
     font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border-radius: 10px;
     text-decoration: none;
+    transition: all 0.3s ease-in-out;
 }
 
-#aboutUs .btn:hover {
+#aboutUs .btn-primary:hover {
     background-color: #003a68;
+    transform: scale(1.05);
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 #oferta-section {
