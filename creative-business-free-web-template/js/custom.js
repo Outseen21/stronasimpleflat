@@ -11,15 +11,16 @@ $(window).load(function() {
 });
 
 $(document).ready(function() {
-    $('.scroll-link').on('click', function(e) {
-        e.preventDefault();
-        const targetID = $(this).attr('href');
-        const targetOffset = $(targetID).offset().top;
+  $('.scroll-link').on('click', function(e) {
+    e.preventDefault();
+    const targetID = $(this).attr('href'); // Pobiera ID z href
+    const targetOffset = $(targetID).offset().top; // Pobiera pozycję sekcji
 
-        $('html, body').animate({
-            scrollTop: targetOffset - 50 // -50 to offset dla nagłówka
-        }, 1000, 'swing');
-    });
+    $('html, body').animate({
+        scrollTop: targetOffset - 50 // -50 to offset dla nagłówka
+    }, 1000, 'swing');
+});
+
 
 	let currentImageIndex = 0;
 const images = {
